@@ -36,17 +36,18 @@ Use the selected helper commands or Git directly in the instructions. Respect ex
 
 ## 4. Check the setup
 
-Test any helper you created, then ask this question before starting the optional test:
+Test any helper you created, then ask:
 
-> Want me to test the setup with a subagent, commit it, and push it to the remote?
+> Want me to test the setup with a subagent? This will also commit the setup and push it to GitHub (or your project's Git remote).
 >
-> - Yes, run the optional test, commit, and push
+> - Yes, test, commit, and push
+> - Skip the test, commit, and push
 > - No, keep the setup local
 
-The yes option explicitly authorizes all three steps. If the user selects it, test the setup, commit the setup changes, and push through the project's normal process without asking again. If the user chooses otherwise, follow their answer. If an instruction file is ignored, explain that it must be tracked and ask before changing the ignore rule or adding it explicitly. New local worktrees need the setup committed to the base; pushing shares it with other checkouts.
+The first option approves testing, committing, and pushing; the second approves committing and pushing without the test. Follow the selected option without asking again. If the user keeps the setup local, do not commit or push. Commit only the setup changes. If an instruction file is ignored, make it trackable so new worktrees can receive it; preserve existing ignore rules for other files.
 
 ## Optional setup check
 
-If the user agrees, create a temporary clone, copy the setup changes into it, and commit them there so its worktrees can discover the instructions. Give a fresh subagent a small task, such as a script that prints `Hello`, without explaining the workflow. Review whether it used its own worktree, found the commands it needed, and left the work ready for review. Test finishing in the temporary clone, not the real project. Fix observed gaps and retry once if needed. Clean up only the test's own files. If subagents are unavailable, suggest testing in a new chat instead.
+If the user agrees, create a temporary clone, copy the setup changes into it, and commit them there so its worktrees can discover the instructions. Give a fresh subagent a small task, such as a script that prints `Hello`, without explaining the workflow. Review whether it used its own worktree, found the commands it needed, and left the work ready for review. Test finishing in the temporary clone, not the real project. Fix observed gaps and retry once if needed. Clean up only the test's own files. If subagents are unavailable, report that the test was skipped.
 
-After testing, include instruction fixes in the setup commit before pushing. Report any unfinished steps or cleanup.
+Include any instruction fixes in the setup commit before pushing. Report any unfinished steps or cleanup.

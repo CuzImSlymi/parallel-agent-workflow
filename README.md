@@ -11,8 +11,10 @@ I made this because my chats kept conflicting when they worked on the same proje
 Open your project and copy this prompt into your AI agent:
 
 ```text
-Read https://raw.githubusercontent.com/CuzImSlymi/parallel-agent-workflow/main/INSTALL.md and follow the instructions.
+Read https://raw.githubusercontent.com/CuzImSlymi/parallel-agent-workflow/main/INSTALL.md and follow the instructions. After I approve, commit and push the setup.
 ```
+
+The agent will ask before committing and pushing. Some projects deploy automatically when pushed.
 
 ## How to use
 
